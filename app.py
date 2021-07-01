@@ -10,21 +10,24 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 import json
 import operator
+import requests
+
+USPC_CLASS_ALL="https://media.githubusercontent.com/media/gongl1/project2-herokuapp/main/uspc_class_all.json"
+USPC_ATTORNEYSUCCESS="https://media.githubusercontent.com/media/gongl1/project2-herokuapp/main/uspc_attorney_success_withnames_all.json"
+USPC_CLASS_DAYSANDRATE="https://media.githubusercontent.com/media/gongl1/project2-herokuapp/main/uspc_class_daysandrate_all.json"
 
 
 
 
-
-
-uspc_class_all_file = open ('uspc_class_all.json', "r")
-uspc_class_all_json = json.loads(uspc_class_all_file.read())
-
-uspc_class_daysandrate_all_file = open ('uspc_class_daysandrate_all.json', "r")
-uspc_class_daysandrate_all_json = json.loads(uspc_class_daysandrate_all_file.read())
-
-uspc_attorney_success_withnames_all_file = open ('uspc_attorney_success_withnames_all.json', "r")
-uspc_attorney_success_withnames_all_json = json.loads(uspc_attorney_success_withnames_all_file.read())
-
+# uspc_class_all_file = open ('uspc_class_all.json', "r")
+# uspc_class_all_json = json.loads(uspc_class_all_file.read())
+uspc_class_all_json = requests.get(USPC_CLASS_ALL).json()
+# uspc_class_daysandrate_all_file = open ('uspc_class_daysandrate_all.json', "r")
+# uspc_class_daysandrate_all_json = json.loads(uspc_class_daysandrate_all_file.read())
+uspc_class_daysandrate_all_json = requests.get(USPC_CLASS_DAYSANDRATE).json()
+# uspc_attorney_success_withnames_all_file = open ('uspc_attorney_success_withnames_all.json', "r")
+# uspc_attorney_success_withnames_all_json = json.loads(uspc_attorney_success_withnames_all_file.read())
+uspc_attorney_success_withnames_all_json = requests.get(USPC_ATTORNEYSUCCESS).json()
 #################################################
 
 # Flask Setup
