@@ -1,3 +1,1 @@
-# project2-heroku
-
-https://www.uspto.gov/web/patents/classification/selectnumwithtitle.htm
+This package of codes include flask app.py which queries from online json files. Please refer to https://github.com/gongl1/project2-heroku for alternative queries from local json files. The topic USPTO patents is consistent across my projects.
